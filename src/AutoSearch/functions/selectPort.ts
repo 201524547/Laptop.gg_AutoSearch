@@ -1,4 +1,4 @@
-import { Port } from 'AutoSearch/mapper/PortMapper';
+import { Port } from 'AutoSearch/utils/PortMapper';
 import { Page } from 'playwright';
 
 export default async function selectPort(page: Page, port: Port): Promise<void> {

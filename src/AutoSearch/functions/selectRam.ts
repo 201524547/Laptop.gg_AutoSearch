@@ -1,4 +1,4 @@
-import { RamMapper, RamTypeEnum } from 'AutoSearch/mapper/RamMapper';
+import { RamMapper, RamTypeEnum } from 'AutoSearch/utils/RamMapper';
 import { Page } from 'playwright';
 
 const RamSector = '#extendSearchOptionpriceCompare > div > dl:nth-child(27)';

@@ -1,4 +1,4 @@
-import { UsageMapper, UsageTypeEnum } from 'AutoSearch/mapper/UsageMapper';
+import { UsageMapper, UsageTypeEnum } from 'AutoSearch/utils/UsageMapper';
 import { Page } from 'playwright';
 
 const usageSector = '#extendSearchOptionpriceCompare > div > dl:nth-child(65)';

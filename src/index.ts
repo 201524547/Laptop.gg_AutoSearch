@@ -8,6 +8,7 @@ import { chromium } from 'playwright';
 
   const autoSearch = await new AutoSearch(page);
   await autoSearch.search();
+  await autoSearch.getResults();
 
   return 0;
 })();
