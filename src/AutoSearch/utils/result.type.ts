@@ -13,7 +13,7 @@ export const SearchTypeMapper = {
 };
 
 export interface Result {
-  imageSrc: string;
-  model: string;
+  imageSrc: string | null | undefined;
+  model: string | undefined;
   spec: string[];
 }

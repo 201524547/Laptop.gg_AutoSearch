@@ -6,7 +6,7 @@ import selectRam from 'AutoSearch/functions/selectRam';
 import selectUsage from 'AutoSearch/functions/selectUsage';
 import selectWeight from 'AutoSearch/functions/selectWeight';
 import { RamTypeEnum } from 'AutoSearch/utils/RamMapper';
-import { SearchTypeEnum } from 'AutoSearch/utils/result.type';
+import { Result, SearchTypeEnum } from 'AutoSearch/utils/result.type';
 import { UsageTypeEnum } from 'AutoSearch/utils/UsageMapper';
 import { Page } from 'playwright';
 
@@ -26,15 +26,19 @@ export class AutoSearch {
     // await selectCPU(page);
     await selectRam(page, RamTypeEnum['4GB']);
     await selectBluetooth(page, false);
-    await selectWeight(page, true);
+    await selectWeight(page, false);
     await selectPort(page, { hdmi: true, microSd: true, usbC: true, usbA: true, thunderBolt: true });
-    await selectUsage(page, UsageTypeEnum.OFFICE);
+    await selectUsage(page, UsageTypeEnum.GAME);
   }
 
   async getResults(): Promise<void> {
     const { page } = this;
-    await Object.entries(SearchTypeEnum).map(async (type) => {
-      await getResult(page, type[1]);
-    });
+    const results: Result[] = [];
+    for (const searchType of Object.entries(SearchTypeEnum)) {
+      const result = await getResult(page, searchType[1]);
+      await results.push(result);
+    }
+
+    console.log(results);
   }
 }
